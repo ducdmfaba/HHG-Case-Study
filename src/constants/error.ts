@@ -1,0 +1,5 @@
+export const NETWORK_ERROR = 'NETWORK_ERROR';
+export const UNKNOWN_ERROR = 'UNKNOWN_ERROR';
+export const SERVER_ERROR = 'SERVER_ERROR';
+export const NO_RESPONSE = 'NO_RESPONSE';
+export const RUNTIME_ERROR = 'RUNTIME_ERROR';

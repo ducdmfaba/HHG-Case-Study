@@ -9,7 +9,7 @@ import { ReactElement } from 'react';
 import { Header } from '../Header';
 
 interface Props {
-  children: ReactElement;
+  children: ReactElement | ReactElement[];
 }
 
 export function Layout(props: Props) {
@@ -17,7 +17,7 @@ export function Layout(props: Props) {
   return (
     <>
       <Header />
-      <Container className="mt-5">{children}</Container>
+      <Container className="py-5">{children}</Container>
     </>
   );
 }
