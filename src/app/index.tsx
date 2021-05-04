@@ -10,11 +10,14 @@ import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import { GlobalStyle } from '../styles/global-styles';
+import { GlobalStyle } from 'styles/global-styles';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HomePage } from './pages/HomePage/Loadable';
-import { NotFoundPage } from './pages/NotFoundPage/Loadable';
+import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { useTranslation } from 'react-i18next';
+import { CounterPage } from './pages/CounterPage/Loadable';
+import { EmployeesPage } from './pages/EmployeesPage/Loadable';
 
 export function App() {
   const { i18n } = useTranslation();
@@ -29,7 +32,9 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/counter" component={CounterPage} />
+        <Route exact path="/employees" component={EmployeesPage} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
