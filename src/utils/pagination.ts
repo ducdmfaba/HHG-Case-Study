@@ -8,7 +8,7 @@ export const paginateList = (
   const { page, limit } = infoPagination;
   const positionCurrentItem = (page - 1) * limit;
   const totalItems = listItems.length;
-  const lastPage = Math.round(totalItems / limit);
+  const lastPage = Math.ceil(totalItems / limit);
 
   const data = listItems.slice(
     positionCurrentItem,
