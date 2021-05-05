@@ -6,7 +6,7 @@ import { EmployeeState } from './types';
 import { ApiError, ApiResponse } from 'types/Api';
 import { SIZE } from 'constants/pagination';
 import { paginateList } from 'utils/pagination';
-import { InfoEmployee } from 'types/Employee';
+import { InfoAddEmployee, InfoEmployee } from 'types/Employee';
 import { InfoPagination } from 'types/Pagination';
 
 export const initialState: EmployeeState = {
@@ -20,6 +20,7 @@ export const initialState: EmployeeState = {
     data: [],
     lastPage: 0,
   },
+  addEmployeeResult: null,
 };
 
 const slice = createSlice({
@@ -47,12 +48,20 @@ const slice = createSlice({
         state.infoPagination,
       );
     },
+    addEmployee(state, action: PayloadAction<InfoAddEmployee>) {},
+    successAddEmployee(
+      state,
+      action: PayloadAction<ApiResponse<InfoEmployee>>,
+    ) {
+      state.addEmployeeResult = action.payload.data;
+    },
     resetState(state) {
       state.employees = initialState.employees;
       state.error = initialState.error;
       state.employees = initialState.employees;
       state.infoPagination = initialState.infoPagination;
       state.paginationResult = initialState.paginationResult;
+      state.addEmployeeResult = initialState.addEmployeeResult;
     },
   },
 });

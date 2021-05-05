@@ -14,6 +14,21 @@ function* getEmployees() {
   }
 }
 
+function* addEmployee(action) {
+  const infoAddEmployee = action.payload;
+  try {
+    const response = yield call(
+      [EmployeeService, EmployeeService.createEmployee],
+      infoAddEmployee,
+    );
+    yield put(actions.getEmployees());
+    yield put(actions.successAddEmployee(response));
+  } catch (e) {
+    yield put(actions.failedGetEmployees(e));
+  }
+}
+
 export function* employeeSaga() {
   yield takeLatest(actions.getEmployees.type, getEmployees);
+  yield takeLatest(actions.addEmployee.type, addEmployee);
 }

@@ -19,7 +19,7 @@ export function Pagination(props: Props) {
   const dispatch = useDispatch();
   const { actions } = useEmployeeSlice();
   const { currentPage, lastPage, limit } = props;
-  const { Item, Ellipsis, Next, Prev } = PaginationBootstrap;
+  const { Item, Ellipsis } = PaginationBootstrap;
 
   const PageItem = ({ number }) => {
     return (
@@ -97,9 +97,7 @@ export function Pagination(props: Props) {
 
   return (
     <PaginationBootstrap className="mb-0">
-      <Prev />
       {renderPagination()}
-      <Next />
     </PaginationBootstrap>
   );
 }

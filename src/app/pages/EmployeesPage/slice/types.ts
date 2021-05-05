@@ -8,4 +8,5 @@ export interface EmployeeState {
   error: ApiError | null;
   infoPagination: InfoPagination;
   paginationResult: PaginationResult<InfoEmployee>;
+  addEmployeeResult: InfoEmployee | null;
 }
