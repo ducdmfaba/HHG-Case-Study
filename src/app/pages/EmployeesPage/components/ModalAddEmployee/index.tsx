@@ -60,11 +60,11 @@ function ModalAddEmployeeInnerForm(
             <FormControl name="position" type="text" onChange={handleChange} />
             <ErrorMessage name="position" />
           </FormGroup>
-          <div className="d-flex justify-content-between">
+          <div className="d-flex">
             <Button type="submit" variant="primary" className="mr-2">
               Add
             </Button>
-            <Button variant="danger" onClick={onHide}>
+            <Button variant="light" onClick={onHide}>
               Close
             </Button>
           </div>

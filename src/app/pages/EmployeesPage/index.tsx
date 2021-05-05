@@ -14,6 +14,7 @@ import { selectEmployee } from './slice/selectors';
 import { Pagination } from 'app/components/Pagination';
 import { Button } from 'react-bootstrap';
 import { ModalAddEmployee } from './components/ModalAddEmployee';
+import { toast } from 'react-toastify';
 
 const tableEmployeeColumns: string[] = ['name', 'email', 'position'];
 
@@ -41,7 +42,7 @@ export function EmployeesPage() {
   useEffect(() => {
     if (addEmployeeResult) {
       onHide();
-      alert('Employee has been added successfully.');
+      toast.success('Employee has been added successfully.');
     }
   }, [addEmployeeResult]);
 
